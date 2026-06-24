@@ -1,0 +1,3 @@
+train_img_dir : 'data/mscoco/train2017'
+train_annotation_file : 'data/UKB/captions_train.json'
+#train_annotation_file : 'data/UKB/captions_test.json'
