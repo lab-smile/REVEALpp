@@ -110,13 +110,17 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-If using GPU acceleration, make sure your PyTorch and CUDA versions are compatible with your system.
-
 ## Data
 
 Raw UK Biobank data, retinal images, clinical variables, and protected health information are not included in this repository.
 
-The dataset loader expects COCO-style JSON files containing image metadata and clinical text annotations, along with a CSV file containing retinal image features.
+The dataset loader expects COCO-style JSON files containing image metadata and clinical text annotations, along with a CSV file containing retinal image features. Structured UK Biobank risk-factor variables were converted into synthetic clinical reports using a fixed template and LLaMA-3.1. The template is as follows
+
+```python
+The subject is <age>years old <ethnic background><sex>. The average total household of this subject is in between <economic status>. The subject has <HbA1C> HbA1C, <HDL> HDL, <BMI> BMI, <systolic blood pressure> systolic blood pressure, <diastolic blood pressure> diastolic blood pressure. For lifestyle, the subject is in <employment status>. The subject is <smoking history>, has <depression>, has sleep deprivation <sleep deprivation>, and drinks alcohol <alcohol use>. The subject had his first cannabis at age <age of cannabis initiation>and used cannabis <cannabis use>times. The subject visits family <frequency of family visit>, and <number of leisure activity>. For physical activity, the subject walks <duration of walked 10+ minutes>minutes <number of days/week of walked 10+ minutes>days per week, exercises moderately <duration of moderate activity>minutes for <number of days/week of moderate activity>days a week, and exercises vigorously <duration of vigorous exercise> minutes for <number of days/week of vigorous activity> days a week. For diet, the subject has <cooked vegetable intake> tablespoons of cooked vegetables, <raw vegetable intake> tablespoons of raw vegetables, <fresh fruit intake> tablespoons of fresh fruit, and <dried fruit intake> dried fruit. In addition, the subject has oily fish <oily fish intake>, non-oily fish <non oily fish intake>, processed meat <processed meat intake>, poultry <poultry intake>, beef <beef intake>, lamb <lamb intake>, and pork <pork intake>. The subject has <bread intake> slices of bread per week, with <spread type>. The subject drinks <milk type>, <tea intake>cups of tea, <coffee intake> cups of coffee, <water intake> cups of water per day. The subject puts <salt added to food> in his diet. For cognitive function, the subject remembered <numeric memory> digits in the numeric memory test, scored <fluid intelligence> in a fluid intelligence test, completed trail #1 in <trail-making test A duration> deciseconds with <trail-making test A error counts> errors, and completed trail #2 in <trail-making test B duration> deciseconds with <trail-making test B error counts> errors. 
+```
+
+When a risk factor was unavailable (e.g., age of cannabis initiation), the report stated: No cannabis use was reported at that age in the <age of cannabis initiation>section.
 
 Default expected files:
 
@@ -133,14 +137,14 @@ A typical JSON annotation structure should include:
 {
   "images": [
     {
-      "id": 100001,
-      "file_name": "100001.png",
+      "id": participant_id,
+      "file_name": "participant_id.png",
       "path": "/path/to/fundus/image.png"
     }
   ],
   "annotations": [
     {
-      "image_id": 100001,
+      "image_id": participant_id,
       "caption": "Clinical risk narrative for the subject..."
     }
   ]
