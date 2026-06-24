@@ -215,11 +215,7 @@ The Stage 2 notebook extracts learned image-text representations and evaluates d
 The evaluation reports metrics including:
 
 - AUROC
-- AUPRC
 - balanced accuracy
-- sensitivity
-- specificity
-- precision
 - F1-score
 - Matthews correlation coefficient
 
