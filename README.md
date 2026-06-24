@@ -137,14 +137,14 @@ A typical JSON annotation structure should include:
 {
   "images": [
     {
-      "id": participant_id,
+      "id": "participant_id",
       "file_name": "participant_id.png",
       "path": "/path/to/fundus/image.png"
     }
   ],
   "annotations": [
     {
-      "image_id": participant_id,
+      "image_id": "participant_id",
       "caption": "Clinical risk narrative for the subject..."
     }
   ]
