@@ -1,5 +1,7 @@
 # REVEAL++
 
+Paper Link https://link.springer.com/chapter/10.1007/978-3-032-38059-3_50
+
 **REVEAL++: Differentiable Phenotypic Grouping for Vision–Language Retinal Modeling of Alzheimer’s Disease Risk**
 
 The model aligns retinal fundus images with structured clinical risk narratives to learn multimodal representations for incident Alzheimer’s disease prediction. Instead of assigning subjects to fixed phenotypic groups, REVEAL++ computes soft inter-subject similarity weights from retinal and clinical embeddings, enabling graded multi-positive contrastive learning. This continuous formulation better reflects the heterogeneous and spectrum-like nature of neurodegenerative disease risk and improves downstream prediction performance on UK Biobank retinal imaging data compared with discrete group-aware contrastive learning and standard vision–language baselines.
