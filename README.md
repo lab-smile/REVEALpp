@@ -1,6 +1,6 @@
 # REVEAL++
 
-Paper Link https://link.springer.com/chapter/10.1007/978-3-032-38059-3_50
+Paper Link: https://link.springer.com/chapter/10.1007/978-3-032-38059-3_50
 
 **REVEAL++: Differentiable Phenotypic Grouping for Vision–Language Retinal Modeling of Alzheimer’s Disease Risk**
 
